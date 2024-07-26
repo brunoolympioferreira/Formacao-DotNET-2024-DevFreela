@@ -10,4 +10,14 @@ public class UsersController : ControllerBase
     {
         return Ok();
     }
+
+    [HttpPut("{id}/profile-picture")]
+    public IActionResult PostProfilePicture(IFormFile file)
+    {
+        var description = $"File: {file.Name}, Size: {file.Length}";
+
+        // Processar a imagem
+
+        return Ok(description);
+    }
 }
