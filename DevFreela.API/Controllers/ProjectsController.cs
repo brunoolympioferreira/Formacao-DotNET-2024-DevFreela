@@ -10,21 +10,18 @@ public class ProjectsController : ControllerBase
 {
     private readonly FreelanceTotalCostConfig _config;
     private readonly IConfigService _configService;
-    public ProjectsController(IOptions<FreelanceTotalCostConfig> options, IConfigService configService)
+    public ProjectsController()
     {
-        _config = options.Value;
-        _configService = configService;
     }
     [HttpGet]
     public IActionResult Get(string search = "")
     {
-        return Ok(_configService.GetValue());
+        return Ok();
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-        throw new Exception();
         return Ok();
     }
 
