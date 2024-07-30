@@ -20,7 +20,8 @@ public class ProjectsController : ControllerBase
         var projects = _context.Projects
             .Include(p => p.Client)
             .Include(p => p.Freelancer)
-            .Where(p => !p.IsDeleted).ToList();
+            .Where(p => !p.IsDeleted)
+            .ToList();
 
         var model = projects.Select(ProjectItemViewModel.FromEntity).ToList();
 
