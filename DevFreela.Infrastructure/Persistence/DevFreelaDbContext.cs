@@ -1,14 +1,14 @@
-﻿using DevFreela.API.Entities;
+﻿using DevFreela.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DevFreela.API.Persistence;
+namespace DevFreela.Infrastructure.Persistence;
 
 public class DevFreelaDbContext : DbContext
 {
     public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options)
         : base(options)
     {
-        
+
     }
 
     public DbSet<Project> Projects { get; set; }
