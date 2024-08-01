@@ -3,7 +3,7 @@
 namespace DevFreela.Application.Services;
 public interface IProjectService
 {
-    ResultViewModel<List<ProjectItemViewModel>> GetAll(string search = "", int page = 0, int size = 3);
+    ResultViewModel<List<ProjectItemViewModel>> GetAll(string search, int page, int size);
     ResultViewModel<ProjectViewModel> GetById(int id);
     ResultViewModel<int> Insert(CreateProjectInputModel model);
     ResultViewModel Update(UpdateProjectInputModel model);
