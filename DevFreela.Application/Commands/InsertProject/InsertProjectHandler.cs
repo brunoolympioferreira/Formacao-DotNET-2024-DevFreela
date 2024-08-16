@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Application.Notification.ProjectCreated;
 using DevFreela.Infrastructure.Persistence;
 using MediatR;
 
@@ -20,8 +21,8 @@ public class InsertProjectHandler : IRequestHandler<InsertProjectCommand, Result
         await _context.Projects.AddAsync(project);
         _context.SaveChanges();
 
-        //var projectCreated = new ProjectCreatedNotification(project.Id, project.Title, project.TotalCost);
-        //await _mediator.Publish(projectCreated);
+        var projectCreated = new ProjectCreatedNotification(project.Id, project.Title, project.TotalCost);
+        await _mediator.Publish(projectCreated);
 
         return ResultViewModel<int>.Success(project.Id);
     }
